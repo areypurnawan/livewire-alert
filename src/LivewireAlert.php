@@ -38,6 +38,21 @@ class LivewireAlert implements Contracts\Alertable
         return $this;
     }
 
+    public function status(string $status)
+    {
+        if ($status == 'success') {
+            return $this->success();
+        } else if ($status == 'error') {
+            return $this->error();
+        } else if ($status == 'warning') {
+            return $this->warning();
+        } else if ($status == 'info') {
+            return $this->info();
+        } else if ($status == 'question') {
+            return $this->question();
+        }
+    }
+    
     public function success(): self
     {
         $this->options[Enums\Option::Icon->value] = Enums\Icon::Success->value;
